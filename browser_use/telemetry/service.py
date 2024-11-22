@@ -34,7 +34,7 @@ class ProductTelemetry:
 
 	def __init__(self) -> None:
 		telemetry_disabled = os.getenv('ANONYMIZED_TELEMETRY', 'true').lower() == 'false'
-		self.debug_logging = os.getenv('BROWSER_USE_DEBUG_LOGGING', 'false').lower() == 'true'
+		self.debug_logging = os.getenv('BROWSER_USE_LOGGING_LEVEL', 'info').lower() == 'debug'
 
 		if telemetry_disabled:
 			self._posthog_client = None
