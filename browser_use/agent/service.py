@@ -123,6 +123,8 @@ class Agent:
 			result = self.controller.act(model_output.action)
 			if result.extracted_content:
 				logger.info(f'📄 Result: {result.extracted_content}')
+			if result.is_done:
+				logger.result(f'{result.extracted_content}')
 			self.consecutive_failures = 0
 
 		except Exception as e:
